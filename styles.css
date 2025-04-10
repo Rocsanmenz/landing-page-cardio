@@ -65,6 +65,18 @@ h1, h2, h3, p, a, button {
   color: #D1D7DE;
 }
 
+/* ===== BOTÓN MENU TOGGLE ===== */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+  padding: 6px 10px;
+}
+
 /* ===== INICIO ===== */
 .inicio {
   background-image: url("images/cardiologia.jpg");
@@ -259,7 +271,7 @@ h1, h2, h3, p, a, button {
   height: 100%;
 }
 
-/* ===== SIDEBAR LATERAL (RESPONSIVO SOLO EN MÓVILES) ===== */
+/* ===== SIDEBAR LATERAL (RESPONSIVO) ===== */
 .sidebar {
   position: fixed;
   top: 0;
@@ -273,24 +285,20 @@ h1, h2, h3, p, a, button {
   padding: 20px;
   display: none;
 }
-
 .sidebar.show {
   left: 0;
 }
-
 .sidebar-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 25px;
 }
-
 .menu-title {
   font-size: 20px;
   font-weight: bold;
   color: #5B6F8F;
 }
-
 .close-btn {
   background: none;
   border: none;
@@ -298,13 +306,11 @@ h1, h2, h3, p, a, button {
   cursor: pointer;
   color: #5B6F8F;
 }
-
 .sidebar-links {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-
 .sidebar-links a {
   text-decoration: none;
   font-weight: bold;
@@ -314,7 +320,6 @@ h1, h2, h3, p, a, button {
   align-items: center;
   gap: 10px;
 }
-
 .sidebar-links a:hover {
   color: #719EC0;
 }
@@ -323,24 +328,10 @@ h1, h2, h3, p, a, button {
   .sidebar {
     display: block;
   }
-}
-/* Oculta el botón hamburguesa por defecto */
-.menu-toggle {
-  display: none;
-  font-size: 24px;
-  color: white;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-/* SOLO mostrar el botón ☰ en móvil y ocultar el navbar horizontal */
-@media (max-width: 768px) {
   .menu-toggle {
     display: block;
   }
-
   .nav-links {
-    display: none !important; /* Oculta las opciones del navbar horizontal */
+    display: none !important;
   }
 }
