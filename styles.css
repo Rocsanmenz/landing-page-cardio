@@ -276,7 +276,7 @@ h1, h2, h3, p, a, button {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 320px;
   height: 100vh;
   background-color: #F4F6F8;
   transform: translateX(-100%);
@@ -296,7 +296,9 @@ h1, h2, h3, p, a, button {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 25px;
+  max-width: 300px; /* Limita el ancho del contenido */
 }
+
 .menu-title {
   font-size: 20px;
   font-weight: bold;
@@ -325,6 +327,11 @@ h1, h2, h3, p, a, button {
 }
 .sidebar-links a:hover {
   color: #719EC0;
+}
+
+.sidebar-content {
+  max-width: 300px;
+  width: 90%;
 }
 
 @media (max-width: 768px) {
