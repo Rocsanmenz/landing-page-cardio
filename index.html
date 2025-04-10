@@ -9,21 +9,20 @@
 </head>
 <body>
 
-<!-- SIDEBAR LATERAL -->
-<div id="sidebar" class="sidebar">
-  <div class="sidebar-header">
-    <span class="menu-title">Menú</span>
-    <button class="close-btn" id="closeSidebar">✖</button>
+  <!-- SIDEBAR SOLO PARA MÓVILES -->
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <span class="menu-title">Menú</span>
+      <button class="close-btn" id="closeSidebar">✖</button>
+    </div>
+    <nav class="sidebar-links">
+      <a href="#inicio"><span>🏠</span> Inicio</a>
+      <a href="#servicios"><span>🩺</span> Servicios</a>
+      <a href="#importancia"><span>📊</span> Importancia</a>
+      <a href="#mision"><span>🎯</span> Nosotros</a>
+      <a href="#contacto"><span>📞</span> Contacto</a>
+    </nav>
   </div>
-  <nav class="sidebar-links">
-    <a href="#inicio"><span>🏠</span> Inicio</a>
-    <a href="#servicios"><span>🩺</span> Servicios</a>
-    <a href="#importancia"><span>📊</span> Importancia</a>
-    <a href="#mision"><span>🎯</span> Nosotros</a>
-    <a href="#contacto"><span>📞</span> Contacto</a>
-  </nav>
-</div>
-
 
   <!-- NAVBAR SUPERIOR -->
   <header class="navbar">
@@ -32,7 +31,13 @@
       <span class="nombre-logo">CardioVita</span>
     </div>
     <button class="menu-toggle" id="openSidebar">☰</button>
-
+    <nav class="nav-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#importancia">Importancia</a>
+      <a href="#mision">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
   </header>
 
   <!-- INICIO -->
@@ -69,11 +74,11 @@
     <div class="info-importancia">
       <div class="importancia-bloque">
         <h3>¿Sabés qué es la presión arterial?</h3>
-        <p>La hipertensión arterial es una enfermedad silenciosa que puede desencadenar infartos, accidentes cerebrovasculares y problemas renales si no se detecta a tiempo.</p>
+        <p>La hipertensión arterial es una enfermedad silenciosa que puede desencadenar infartos, ACV y problemas renales si no se detecta a tiempo.</p>
       </div>
       <div class="importancia-bloque">
         <h3>¿Por qué CardioVita?</h3>
-        <p>Nuestra app permite llevar un control digital de la presión arterial, generar gráficos, recibir alertas y compartir reportes médicos.</p>
+        <p>Permite controlar la presión, recibir alertas, compartir reportes y mejorar tu salud desde cualquier dispositivo.</p>
       </div>
     </div>
   </section>
@@ -84,7 +89,7 @@
     <div class="info-mv">
       <div class="mv">
         <h3>Misión</h3>
-        <p>Brindar una herramienta digital innovadora para el monitoreo eficiente de la hipertensión arterial.</p>
+        <p>Brindar una herramienta digital innovadora y accesible para el monitoreo eficiente de la hipertensión arterial.</p>
       </div>
       <div class="mv">
         <h3>Visión</h3>
@@ -99,11 +104,10 @@
     <div class="video-contenedor">
       <iframe width="100%" height="500"
         src="https://www.youtube.com/embed/AI9TWcSyiIg"
-        title="Hipertensión arterial - ¿Qué es y cómo prevenirla?"
+        title="Hipertensión arterial"
         frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
+        allow="autoplay; encrypted-media"
+        allowfullscreen></iframe>
     </div>
   </section>
 
@@ -119,6 +123,7 @@
     </div>
   </section>
 
+  <!-- SCRIPT -->
   <script src="script.js"></script>
 
 </body>
