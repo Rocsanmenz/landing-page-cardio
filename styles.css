@@ -65,6 +65,38 @@ h1, h2, h3, p, a, button {
   color: #D1D7DE;
 }
 
+/* ===== MENU RESPONSIVO ===== */
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: #5B6F8F;
+    display: none;
+  }
+  .nav-links.show {
+    display: flex;
+  }
+  .nav-links a {
+    padding: 12px;
+    border-top: 1px solid #719EC0;
+    text-align: center;
+  }
+  .menu-toggle {
+    display: block;
+  }
+}
+
 /* ===== INICIO ===== */
 .inicio {
   background-image: url("images/cardiologia.jpg");
@@ -78,7 +110,6 @@ h1, h2, h3, p, a, button {
   text-align: center;
   padding: 40px 20px;
   color: #0A111C;
-
 }
 
 .inicio .contenido {
@@ -126,7 +157,7 @@ h1, h2, h3, p, a, button {
   transform: scale(1.05);
 }
 
-/* ===== CARRUSEL ===== */
+/* ===== CARRUSEL (si lo usás) ===== */
 .galeria {
   background-color: #F4F6F8;
   color: #0A111C;
@@ -197,15 +228,12 @@ h1, h2, h3, p, a, button {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 320px; /* más alto para mayor impacto */
+  height: 320px;
 }
-
 .card:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
-
-
 .card p {
   margin: 0;
   font-size: 16px;
@@ -218,7 +246,6 @@ h1, h2, h3, p, a, button {
   border-radius: 10px;
   margin-bottom: 10px;
 }
-
 
 /* ===== IMPORTANCIA ===== */
 .importancia {
@@ -247,7 +274,7 @@ h1, h2, h3, p, a, button {
   color: #5B6F8F;
 }
 
-/* ===== MISIÓN Y VISIÓN (Nosotros) ===== */
+/* ===== MISIÓN Y VISIÓN ===== */
 .mision {
   background-color: #5B6F8F;
 }
@@ -290,25 +317,94 @@ h1, h2, h3, p, a, button {
   font-size: 16px;
 }
 
+/* ===== VIDEO ===== */
 .video {
   background-color: #F4F6F8;
   color: #0A111C;
 }
-
 .video h2 {
   margin-bottom: 20px;
   font-size: 24px;
 }
-
 .video-contenedor {
   max-width: 900px;
   margin: 0 auto;
   padding: 0 20px;
   aspect-ratio: 16/9;
 }
-
 .video iframe {
   border-radius: 12px;
   width: 100%;
   height: 100%;
+}
+
+
+/* ===== SIDEBAR LATERAL ===== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 260px;
+  height: 100%;
+  background-color: #F4F6F8;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+  transition: left 0.3s ease;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.sidebar.show {
+  left: 0;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.menu-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #5B6F8F;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #5B6F8F;
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.sidebar-links a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #5B6F8F;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar-links a:hover {
+  color: #719EC0;
+}
+
+/* Ajustes botón hamburguesa */
+.menu-toggle {
+  font-size: 24px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
