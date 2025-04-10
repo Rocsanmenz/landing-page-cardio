@@ -334,13 +334,13 @@ h1, h2, h3, p, a, button {
   cursor: pointer;
 }
 
-/* Solo mostrarlo en pantallas pequeñas */
+/* SOLO mostrar el botón ☰ en móvil y ocultar el navbar horizontal */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
   }
 
   .nav-links {
-    display: none; /* Opcional: oculta el navbar horizontal si querés solo el sidebar */
+    display: none !important; /* Oculta las opciones del navbar horizontal */
   }
 }
