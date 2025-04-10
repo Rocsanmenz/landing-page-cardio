@@ -275,19 +275,22 @@ h1, h2, h3, p, a, button {
 .sidebar {
   position: fixed;
   top: 0;
-  left: -280px;
-  width: 250px;
-  height: 100%;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background-color: #F4F6F8;
-  box-shadow: 2px 0 8px rgba(0,0,0,0.2);
-  transition: left 0.3s ease;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
   z-index: 2000;
   padding: 20px;
-  display: none;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.2);
 }
+
 .sidebar.show {
-  left: 0;
+  transform: translateX(0);
 }
+
+
 .sidebar-header {
   display: flex;
   justify-content: space-between;
@@ -334,4 +337,7 @@ h1, h2, h3, p, a, button {
   .nav-links {
     display: none !important;
   }
+}
+html, body {
+  overflow-x: hidden;
 }
