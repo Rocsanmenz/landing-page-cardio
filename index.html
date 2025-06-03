@@ -31,43 +31,9 @@
   language-code="es">
 </df-messenger>
 
-<!-- Botón cerrar -->
+<!-- Botón cerrar chatbot -->
 <button id="cerrarChat" class="cerrar-chat" style="display: none;">❌</button>
 
-
-<!-- Script cerrar chatbot -->
-<script>
-  window.addEventListener("DOMContentLoaded", () => {
-    const df = document.querySelector("df-messenger");
-    const cerrarBtn = document.getElementById("cerrarChat");
-
-    setTimeout(() => {
-      const shadow = df.shadowRoot;
-      const chatElement = shadow.querySelector("df-messenger-chat");
-      const innerShadow = chatElement.shadowRoot;
-      const closeBtn = innerShadow.querySelector("button[aria-label='Close chat']");
-
-      const observer = new MutationObserver(() => {
-        const isOpen = chatElement.hasAttribute("opened");
-        cerrarBtn.style.display = isOpen ? "block" : "none";
-      });
-
-      observer.observe(chatElement, { attributes: true });
-
-      cerrarBtn.addEventListener("click", () => {
-        closeBtn.click();
-      });
-
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && chatElement.hasAttribute("opened")) {
-          closeBtn.click();
-        }
-      });
-    }, 1500);
-  });
-</script>
-
-<!-- Estilo botón cerrar -->
 <style>
   .cerrar-chat {
     position: fixed;
@@ -84,6 +50,42 @@
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
   }
 </style>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const df = document.querySelector("df-messenger");
+    const cerrarBtn = document.getElementById("cerrarChat");
+    if (!df || !cerrarBtn) return;
+
+    const tryAttach = () => {
+      try {
+        const shadowRoot = df.shadowRoot;
+        const dfChat = shadowRoot?.querySelector("df-messenger-chat");
+        const chatShadow = dfChat?.shadowRoot;
+        const closeBtn = chatShadow?.querySelector("button[aria-label='Close chat']");
+        if (!dfChat || !closeBtn) return setTimeout(tryAttach, 500);
+
+        const observer = new MutationObserver(() => {
+          cerrarBtn.style.display = dfChat.hasAttribute("opened") ? "block" : "none";
+        });
+        observer.observe(dfChat, { attributes: true });
+
+        cerrarBtn.onclick = () => closeBtn.click();
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && dfChat.hasAttribute("opened")) {
+            closeBtn.click();
+          }
+        });
+      } catch (e) {
+        console.warn("Chatbot no listo, reintentando...");
+        setTimeout(tryAttach, 500);
+      }
+    };
+
+    setTimeout(tryAttach, 1000);
+  });
+</script>
 
 <!-- SIDEBAR SOLO PARA MÓVILES -->
 <div id="sidebar" class="sidebar">
@@ -205,52 +207,6 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-YSPNZ7QY63');
-</script>
-
-
-<script>
-  window.addEventListener("DOMContentLoaded", () => {
-    const df = document.querySelector("df-messenger");
-    const cerrarBtn = document.getElementById("cerrarChat");
-
-    if (!df || !cerrarBtn) return;
-
-    const tryAttachClose = () => {
-      try {
-        const shadow = df.shadowRoot;
-        if (!shadow) return setTimeout(tryAttachClose, 500);
-
-        const chatElement = shadow.querySelector("df-messenger-chat");
-        if (!chatElement?.shadowRoot) return setTimeout(tryAttachClose, 500);
-
-        const closeBtn = chatElement.shadowRoot.querySelector("button[aria-label='Close chat']");
-        if (!closeBtn) return setTimeout(tryAttachClose, 500);
-
-        // Mostrar botón solo si está abierto
-        const observer = new MutationObserver(() => {
-          cerrarBtn.style.display = chatElement.hasAttribute("opened") ? "block" : "none";
-        });
-
-        observer.observe(chatElement, { attributes: true });
-
-        // Cierra con el botón flotante ❌
-        cerrarBtn.addEventListener("click", () => closeBtn.click());
-
-        // Cierra con Escape
-        document.addEventListener("keydown", (e) => {
-          if (e.key === "Escape" && chatElement.hasAttribute("opened")) {
-            closeBtn.click();
-          }
-        });
-      } catch (e) {
-        console.warn("Error accediendo al chatbot:", e);
-        setTimeout(tryAttachClose, 500);
-      }
-    };
-
-    // Intenta conectar con el shadow DOM
-    setTimeout(tryAttachClose, 1000);
-  });
 </script>
 
 </body>
