@@ -21,14 +21,66 @@
     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 </script>
 
+<!-- Botón personalizado para abrir/cerrar el chat -->
+<button id="abrirChat" class="btn-chat">💬</button>
+
+<!-- Dialogflow Messenger -->
 <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
 <df-messenger
-  chat-icon="https:&#x2F;&#x2F;cdn-icons-png.flaticon.com&#x2F;128&#x2F;3704&#x2F;3704886.png"
   intent="WELCOME"
   chat-title="Fushi"
   agent-id="c1192ce0-8275-410b-abce-2ead1dbf2613"
   language-code="es"
-></df-messenger>
+  chat-icon="https://cdn-icons-png.flaticon.com/128/3704/3704886.png">
+</df-messenger>
+
+<!-- Estilos del botón y visibilidad del chat -->
+<style>
+  df-messenger {
+    position: fixed !important;
+    bottom: 0;
+    right: 20px;
+    z-index: 999;
+  }
+
+  df-messenger::part(chat-wrapper) {
+    display: none;
+  }
+
+  df-messenger.abierto::part(chat-wrapper) {
+    display: block !important;
+  }
+
+  .btn-chat {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 50%;
+    font-size: 22px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  .btn-chat:focus {
+    outline: none;
+  }
+</style>
+
+<!-- Script de control del botón -->
+<script>
+  const btnChat = document.getElementById("abrirChat");
+  const chat = document.querySelector("df-messenger");
+
+  btnChat.addEventListener("click", () => {
+    chat.classList.toggle("abierto");
+  });
+</script>
+
 
   <!-- SIDEBAR SOLO PARA MÓVILES -->
   <div id="sidebar" class="sidebar">
